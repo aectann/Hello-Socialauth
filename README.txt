@@ -6,5 +6,6 @@ To get up an running
   4.1. alter your local hosts file to make 127.0.0.1 be resolved to i.e. http://app.example.org (replace with domain of your choice). On UNIX based systems the file probably placed under /etc folder, for other systems, just google its location.
   4.2. specify the domain as app site/domain to all your providers (facebook, twitter etc)
   4.3. for callback URI use http://app.example.org:8080/auth (replace domain name with yours).
+  4.4. update web.xml with your app domain	
  5. run 'mvn jetty:run' from project root
  6. open 'http://app.example.org:8080' in a browser
