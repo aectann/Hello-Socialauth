@@ -7,6 +7,10 @@
   <filter>
 		<filter-name>AuthFilter</filter-name>
 		<filter-class>com.amplafi.socialauth.AuthFilter</filter-class>
+		<init-param>
+			<param-name>app-domain</param-name>
+			<param-value>http://app.yourdomain.net</param-value>
+		</init-param>
 	</filter>
 	<filter-mapping>
 		<filter-name>AuthFilter</filter-name>
