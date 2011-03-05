@@ -23,16 +23,22 @@ public class AuthFilter implements Filter {
 	private static final String ATTR_SOCIAL_AUTH = "SocialAuth";
 
 	private static final String PARAMETER_PROVIDER_ID = "idProvider";
+	private static final String PARAMETER_APP_DOMAIN = "app-domain";
 
 	private static final String URI_AUTH = "/auth";
 	private static final String URI_LOGOUT = "/logout";
 	
 	private static final String PAGE_SECURED = "/secured.jsp";
 	private static final String PAGE_LOGIN = "/index.jsp";
+	
+	private String appDomain;
 
 
 	public void init(FilterConfig filterConfig) throws ServletException {
-		
+		appDomain = filterConfig.getInitParameter(PARAMETER_APP_DOMAIN);
+		if (appDomain == null) {
+			throw new IllegalStateException("You have to specify app-domain init parameter.");
+		}
 	}
 	
 	public void doFilter(ServletRequest request, ServletResponse response,
@@ -65,7 +71,7 @@ public class AuthFilter implements Filter {
 					  // id can have values "facebook", "twitter", "yahoo" etc. or the OpenID URL
 					  AuthProvider provider = AuthProviderFactory.getInstance(httpServletRequest.getParameter(PARAMETER_PROVIDER_ID));
 					  // URL of YOUR application which will be called after authentication
-					  String returnToUrl = "http://localhost:8080/auth";
+					  String returnToUrl = appDomain + ":8080/auth";
 					  // Store in session
 					  session.setAttribute(ATTR_SOCIAL_AUTH, provider);
 					  httpServletResponse.sendRedirect(provider.getLoginRedirectURL(returnToUrl));
