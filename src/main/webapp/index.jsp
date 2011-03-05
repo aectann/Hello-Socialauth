@@ -5,6 +5,8 @@
 		<select name="idProvider" id="idProvider">
 			<option label="Twitter">twitter</option>
 			<option label="Facebook">facebook</option>
+			<option label="Yahoo">yahoo</option>
+			<option label="LinkedIn">linkedin</option>
 		</select>
 		<input type="submit"/> 
 	</form>
