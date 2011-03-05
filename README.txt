@@ -1,3 +1,7 @@
+This is helloworld app to show simple integration with socialauth.
+
+== Quick Start ==
+
 To get up an running
  1. cd to project root
  2. run 'mvn install:install-file -DgroupId=org.brickred.socialauth -DartifactId=socialauth -Dversion=1.0-beta2 -Dfile='lib/socialauth-1.0-beta2.jar' -Dpackaging=jar'
@@ -9,3 +13,10 @@ To get up an running
   4.4. update web.xml with your app domain	
  5. run 'mvn jetty:run' from project root
  6. open 'http://app.example.org:8080' in a browser
+ 
+ 
+ ==Yahoo Provider configuration==
+ 
+When configuring your app on the yahoo, be sure to ask access for Profile, Contacts and Update status services. Otherwise you might see following error:
+ "Application keys are not correct. The server running the application should be same that was registered to get the keys." 
+ 
